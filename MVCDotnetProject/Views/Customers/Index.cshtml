@@ -1,0 +1,25 @@
+﻿@model IEnumerable<MVCDotnetProject.Models.Customer>
+@{
+    ViewBag.Title = "Customers";
+}
+
+<table class="table table-striped table-hover ">
+    <thead>
+        <tr>
+            <th>
+                <h2>Customer</h2>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var customer in Model)
+            {
+        <tr>
+            <td>
+                <p class="text-warning">@Html.ActionLink(customer.Name, "Details", "Customers", new {id = customer.Id},null)</p>
+            </td>
+        </tr>
+            }
+    </tbody>
+</table>
