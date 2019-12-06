@@ -9,6 +9,6 @@ namespace MVCDotnetProject.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int RuntimeInMin { get; set; }
+        
     }
 }
