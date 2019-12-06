@@ -187,13 +187,29 @@
     <Compile Include="Migrations\201912050931502_AddMembershipType.Designer.cs">
       <DependentUpon>201912050931502_AddMembershipType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201912050946141_PopulateMembershipTypes.cs" />
-    <Compile Include="Migrations\201912050946141_PopulateMembershipTypes.Designer.cs">
-      <DependentUpon>201912050946141_PopulateMembershipTypes.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201912050955513_ApplyAnnotaionToCustomerName.cs" />
     <Compile Include="Migrations\201912050955513_ApplyAnnotaionToCustomerName.Designer.cs">
       <DependentUpon>201912050955513_ApplyAnnotaionToCustomerName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912051327548_AddMembershipName.cs" />
+    <Compile Include="Migrations\201912051327548_AddMembershipName.Designer.cs">
+      <DependentUpon>201912051327548_AddMembershipName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912051339127_PopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\201912051339127_PopulateMembershipTypes.Designer.cs">
+      <DependentUpon>201912051339127_PopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912051341160_RepopulateMembershipTypes.cs" />
+    <Compile Include="Migrations\201912051341160_RepopulateMembershipTypes.Designer.cs">
+      <DependentUpon>201912051341160_RepopulateMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912060629105_FixMembershipError.cs" />
+    <Compile Include="Migrations\201912060629105_FixMembershipError.Designer.cs">
+      <DependentUpon>201912060629105_FixMembershipError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201912060703598_AddBirthdate.cs" />
+    <Compile Include="Migrations\201912060703598_AddBirthdate.Designer.cs">
+      <DependentUpon>201912060703598_AddBirthdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -293,11 +309,23 @@
     <EmbeddedResource Include="Migrations\201912050931502_AddMembershipType.resx">
       <DependentUpon>201912050931502_AddMembershipType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201912050946141_PopulateMembershipTypes.resx">
-      <DependentUpon>201912050946141_PopulateMembershipTypes.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912050955513_ApplyAnnotaionToCustomerName.resx">
       <DependentUpon>201912050955513_ApplyAnnotaionToCustomerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912051327548_AddMembershipName.resx">
+      <DependentUpon>201912051327548_AddMembershipName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912051339127_PopulateMembershipTypes.resx">
+      <DependentUpon>201912051339127_PopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912051341160_RepopulateMembershipTypes.resx">
+      <DependentUpon>201912051341160_RepopulateMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912060629105_FixMembershipError.resx">
+      <DependentUpon>201912060629105_FixMembershipError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912060703598_AddBirthdate.resx">
+      <DependentUpon>201912060703598_AddBirthdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

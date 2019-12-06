@@ -7,13 +7,13 @@ namespace MVCDotnetProject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class PopulateMembershipTypes : IMigrationMetadata
+    public sealed partial class AddBirthdate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(PopulateMembershipTypes));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddBirthdate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201912050946141_PopulateMembershipTypes"; }
+            get { return "201912060703598_AddBirthdate"; }
         }
         
         string IMigrationMetadata.Source
