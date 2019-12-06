@@ -13,7 +13,7 @@ namespace MVCDotnetProject.Controllers
         // GET: Movie
         public ActionResult Random()
         {
-            var movie = new Movie() { Id = 01, Name = "Bruce Almighty", RuntimeInMin = 137 };
+            var movie = new Movie() { Id = 01, Name = "Bruce Almighty"};
 
 
             List<Customer> customers = new List<Customer>
