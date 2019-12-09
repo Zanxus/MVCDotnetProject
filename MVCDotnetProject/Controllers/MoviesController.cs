@@ -32,9 +32,31 @@ namespace MVCDotnetProject.Controllers
             return View(movie);
         }
 
+        public ActionResult New()
+        {
+            List<Genre> genres = _context.Genres.ToList();
+            MovieFormViewModel viewModel = new MovieFormViewModel
+            {
+                Genres = genres
+            };
+
+            return View("MovieForm", viewModel);
+        }
+
         public ActionResult Edit(int id)
         {
-            return Content("id = " + id);
+            Movie movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
+                MovieFormViewModel viewModel = new MovieFormViewModel
+                {
+                    Movie = movie,
+                    Genres = _context.Genres.ToList()
+                };
+
+            return View("MovieForm", viewModel);
         }
 
         public ActionResult Index()
@@ -44,10 +66,25 @@ namespace MVCDotnetProject.Controllers
             return View(movies);
         }
 
-        [Route("movie/released/{year:regex(\\d4)}/{month:regex(\\d2):range(1,12)}")]
-        public ActionResult ByReleaseDate(int year, int month)
+
+        public ActionResult Save(Movie movie)
         {
-            return Content(year + "/" + month);
+            if (movie.Id == 0)
+            {
+                movie.DateAdded = DateTime.Now;
+                _context.Movies.Add(movie);
+            }
+            else
+            {
+                Movie movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
+                movieInDb.Name = movie.Name;
+                movieInDb.GenreId = movie.GenreId;
+                movieInDb.ReleaseDate = movie.ReleaseDate;
+                movieInDb.DateAdded = DateTime.Now;
+                movieInDb.Stock = movie.Stock;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Movies");
         }
     }
 }
