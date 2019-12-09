@@ -1,4 +1,4 @@
-﻿@model MVCDotnetProject.Models.Genre
+﻿@model MVCDotnetProject.Models.Customer
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,7 @@
 
 <h2>Details</h2>
 <h3>@Model.Name</h3>
-<h4>Membership Type: @Model.Genre.Name</h4>
+<h4>Membership Type: @Model.MembershipType.Name</h4>
 @if (!Model.Birthdate.Equals(null)){
     <h4>Birthdate: @Model.Birthdate.Value.ToShortDateString()</h4>
 }

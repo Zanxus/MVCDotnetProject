@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using MVCDotnetProject.ViewModels;
 
 namespace MVCDotnetProject.Controllers
 {
@@ -34,6 +35,13 @@ namespace MVCDotnetProject.Controllers
                 return HttpNotFound();
             }
             return View(customer);
+        }
+
+       public ActionResult New()
+        {
+            var membershipTypes = _context.MembershipTypes.ToList();
+            var viewModel = new NewCustomerViewModel { MembershipTypes = membershipTypes };
+            return View(viewModel);
         }
     }
 }

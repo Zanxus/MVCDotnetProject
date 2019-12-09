@@ -1,4 +1,4 @@
-﻿@model MVCDotnetProject.Models.Customer
+﻿@model MVCDotnetProject.Models.Movie
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,7 @@
 
 <h2>Details</h2>
 <h3>@Model.Name</h3>
-<h4>Membership Type: @Model.MembershipType.Name</h4>
-@if (!Model.Birthdate.Equals(null)){
-    <h4>Birthdate: @Model.Birthdate.Value.ToShortDateString()</h4>
-}
+<h4>Genre: @Model.Genre.Id</h4>
+<h4>Date Added: @Model.DateAdded.ToLongDateString()</h4>
+<h4>Release Date: @Model.ReleaseDate.ToLongDateString()</h4>
+<h4>Stock: @Model.Stock</h4>
