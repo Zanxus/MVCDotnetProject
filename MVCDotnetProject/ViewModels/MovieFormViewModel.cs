@@ -6,9 +6,9 @@ using MVCDotnetProject.Models;
 
 namespace MVCDotnetProject.ViewModels
 {
-    public class NewCustomerViewModel
+    public class MovieFormViewModel
     {
-        public IEnumerable<MembershipType> MembershipTypes { get; set; }
-        public Customer Customer { get; set; }
+        public Movie Movie { get; set; }
+        public IEnumerable<Genre> Genres { get; set; }
     }
 }
