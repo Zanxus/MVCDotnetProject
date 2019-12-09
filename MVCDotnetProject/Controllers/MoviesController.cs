@@ -5,12 +5,22 @@ using System.Web;
 using System.Web.Mvc;
 using MVCDotnetProject.Models;
 using MVCDotnetProject.ViewModels;
+using System.Data.Entity;
 
 namespace MVCDotnetProject.Controllers
 {
     public class MoviesController : Controller
     {
         // GET: Movie
+        ApplicationDbContext _context;
+        public MoviesController()
+        {
+            _context = new ApplicationDbContext();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
         public ActionResult Random()
         {
             var movie = new Movie() { Id = 01, Name = "Bruce Almighty"};
@@ -36,9 +46,11 @@ namespace MVCDotnetProject.Controllers
             return Content("id = " + id);
         }
 
-        public ActionResult Index(int pageIndex = 1, string sortBy = "Name")
+        public ActionResult Index()
         {
-            return Content($"Page Index = {pageIndex}, Sort By = {sortBy}");
+            var movies = _context.Movies.Include(c => c.Genre).ToList();
+
+            return View(movies);
         }
 
         [Route("movie/released/{year:regex(\\d4)}/{month:regex(\\d2):range(1,12)}")]
