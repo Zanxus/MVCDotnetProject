@@ -21,24 +21,15 @@ namespace MVCDotnetProject.Controllers
         {
             _context.Dispose();
         }
-        public ActionResult Random()
+        public ActionResult Details(int id)
         {
-            var movie = new Movie() { Id = 01, Name = "Bruce Almighty"};
+           var movie = _context.Movies.Include(c => c.Genre).SingleOrDefault(c => c.Id == id);
 
-
-            List<Customer> customers = new List<Customer>
+            if (movie == null)
             {
-                new Customer {Name = "Qu" },
-                new Customer {Name = "Mark" }
-            };
-
-            var viewModel = new RandomMovieViewModel
-            {
-                Movie = movie,
-                Customers = customers
-            };
-            
-            return View(viewModel);
+                return HttpNotFound();
+            } 
+            return View(movie);
         }
 
         public ActionResult Edit(int id)
