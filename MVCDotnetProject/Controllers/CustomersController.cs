@@ -40,10 +40,11 @@ namespace MVCDotnetProject.Controllers
        public ActionResult New()
         {
             List<MembershipType> membershipTypes = _context.MembershipTypes.ToList();
-            CustomerFormViewModel viewModel = new CustomerFormViewModel { MembershipTypes = membershipTypes };
+            CustomerFormViewModel viewModel = new CustomerFormViewModel { MembershipTypes = membershipTypes, Customer = new Customer { } };
             return View("CustomerForm",viewModel);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
             if (!ModelState.IsValid)

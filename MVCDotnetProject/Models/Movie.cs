@@ -12,6 +12,7 @@ namespace MVCDotnetProject.Models
         [Required]
         public string Name { get; set; }
         [Required]
+        [Range(1,20,ErrorMessage ="Stock need to be between 1-20")]
         [Display(Name ="Number in Stock")]
         public int Stock { get; set; }
         [Required]

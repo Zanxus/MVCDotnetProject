@@ -23,7 +23,7 @@ namespace MVCDotnetProject.Controllers
         }
         public ActionResult Details(int id)
         {
-           var movie = _context.Movies.Include(c => c.Genre).SingleOrDefault(c => c.Id == id);
+           Movie movie = _context.Movies.Include(c => c.Genre).SingleOrDefault(c => c.Id == id);
 
             if (movie == null)
             {
@@ -37,7 +37,7 @@ namespace MVCDotnetProject.Controllers
             List<Genre> genres = _context.Genres.ToList();
             MovieFormViewModel viewModel = new MovieFormViewModel
             {
-                Genres = genres
+                Genres = genres,
             };
 
             return View("MovieForm", viewModel);
@@ -50,9 +50,8 @@ namespace MVCDotnetProject.Controllers
             {
                 return HttpNotFound();
             }
-                MovieFormViewModel viewModel = new MovieFormViewModel
+                MovieFormViewModel viewModel = new MovieFormViewModel(movie)
                 {
-                    Movie = movie,
                     Genres = _context.Genres.ToList()
                 };
 
@@ -61,7 +60,7 @@ namespace MVCDotnetProject.Controllers
 
         public ActionResult Index()
         {
-            var movies = _context.Movies.Include(c => c.Genre).ToList();
+            IEnumerable<Movie> movies = _context.Movies.Include(c => c.Genre).ToList();
 
             return View(movies);
         }
@@ -69,6 +68,15 @@ namespace MVCDotnetProject.Controllers
 
         public ActionResult Save(Movie movie)
         {
+            if (!ModelState.IsValid)
+            {
+                MovieFormViewModel viewModel = new MovieFormViewModel(movie)
+                {
+                    Genres = _context.Genres.ToList()
+                };
+                return View("MovieForm", viewModel);
+            }
+
             if (movie.Id == 0)
             {
                 movie.DateAdded = DateTime.Now;
